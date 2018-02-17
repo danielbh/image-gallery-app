@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { InfinitePhotoGrid } from '../../Components'
 import {
   StyleSheet,
   View,
 } from 'react-native'
+import { InfinitePhotoGrid } from '../../Components'
 
 const styles = StyleSheet.create({
   container: {
