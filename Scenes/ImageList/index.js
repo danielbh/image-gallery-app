@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { InfinitePhotoGrid } from '../../Components'
 import {
   StyleSheet,
   View,
@@ -16,6 +17,7 @@ export default class ImageList extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <InfinitePhotoGrid />
       </View>
     )
   }
