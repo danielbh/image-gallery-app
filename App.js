@@ -1,17 +1,19 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import { ImageDetails, ImageList } from './Scenes'
+import { Header, SearchBarHeader } from './Components'
 
 const RootNavigator = StackNavigator({
   ImageList: {
     screen: ImageList,
     navigationOptions: {
-      headerTitle: 'Images'
+      headerTitle: <SearchBarHeader />
     }
   },
   ImageDetails: {
     screen: ImageDetails,
     navigationOptions: {
-      headerTitle: 'Image Details'
+      headerTitle: <Header title="Image Details" />
     }
   }
 })
