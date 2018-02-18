@@ -1,13 +1,17 @@
 import { createStore, applyMiddleware } from 'redux'
+import { all, call } from 'redux-saga/effects'
+import createSagaMiddleware from 'redux-saga'
 import freeze from 'redux-freeze'
+import getImagesSaga from './Containers/SearchBarHeader/saga'
+import getMoreImagesSaga from './Containers/InfinitePhotoGrid/saga'
 import reducers from './Reducers'
-// const sagaMiddleware = createSagaMiddleware()
 
+const sagaMiddleware = createSagaMiddleware()
 
 export default function configureStore(initialState) {
   const middlewares = [
     freeze,
-    // sagaMiddleware,
+    sagaMiddleware,
   ]
 
   const store = createStore(
@@ -15,10 +19,12 @@ export default function configureStore(initialState) {
     applyMiddleware(...middlewares)
   )
 
-  // store.runSaga = sagaMiddleware.run(
-  //   function* mainSaga() {
-  //     yield all([
-  //     ])
-  //   })
+  store.runSaga = sagaMiddleware.run(
+    function* mainSaga() {
+      yield all([
+        call(getImagesSaga),
+        call(getMoreImagesSaga),
+      ])
+    })
   return store
 }

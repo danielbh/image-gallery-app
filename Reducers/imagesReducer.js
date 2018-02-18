@@ -1,7 +1,19 @@
+import {
+  RECEIEVE_IMAGES,
+  SET_SEARCH_QUERY,
+  CLEAR_SEARCH_QUERY
+} from '../constants'
 
-const imagesReducer = (state = {}, action) => {
+const imagesReducer = (state = { items: [], query: '' }, action) => {
   switch (action.type) {
-    default: return state
+    case RECEIEVE_IMAGES:
+      return { ...state, items: action.items }
+    case SET_SEARCH_QUERY:
+      return { ...state, query: action.query }
+    case CLEAR_SEARCH_QUERY:
+      return { query: '', items: [] }
+    default:
+      return state
   }
 }
 

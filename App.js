@@ -3,8 +3,10 @@ import { Provider } from 'react-redux'
 import Navigation from './Navigation'
 import configureStore from './store'
 
+const store = configureStore()
+
 const App = () => (
-  <Provider store={configureStore()}>
+  <Provider store={store}>
     <Navigation />
   </Provider>
 )

@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
-import { Image, TouchableOpacity } from 'react-native'
+import { Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import PhotoGrid from './PhotoGrid'
+import { selectImageData } from './selectors'
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
 
 class InfinitePhotoGrid extends Component {
   constructor() {
     super()
-    this.state = { items: [] }
     this.loadMoreContent = this.loadMoreContent.bind(this)
   }
 
-  componentDidMount() {
-    this.setState({ items: this.generateImages(60) })
-  }
-
-  generateImages(n) {
-    return Array(...Array(n)).map((v, i) => (
-      { id: i, src: `http://placehold.it/200x200?text=${i + 1}` }
-    ))
-  }
-
   loadMoreContent() {
-    this.setState({ items: this.state.items.concat(this.generateImages(40)) })
   }
 
   renderItem(item, itemSize) {
@@ -41,15 +41,32 @@ class InfinitePhotoGrid extends Component {
 
   render() {
     return (
-      <PhotoGrid
-        data={this.state.items}
-        itemsPerRow={3}
-        itemMargin={1}
-        renderItem={this.renderItem}
-        loadMoreContentAsync={this.loadMoreContent}
-      />
+      <View style={styles.container}>
+        {
+          this.props.images.length ?
+            <PhotoGrid
+              data={this.props.images}
+              itemsPerRow={3}
+              itemMargin={1}
+              renderItem={this.renderItem}
+              loadMoreContentAsync={this.loadMoreContent}
+            /> : <Text>Please enter a search query</Text>
+        }
+      </View>
     )
   }
 }
 
-export default InfinitePhotoGrid
+InfinitePhotoGrid.propTypes = {
+  images: PropTypes.array
+}
+
+InfinitePhotoGrid.defaultProps = {
+  images: []
+}
+
+const mapState = (({ images }) => ({
+  images: selectImageData(images.items)
+}))
+
+export default connect(mapState)(InfinitePhotoGrid)
