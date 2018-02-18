@@ -1,22 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { SearchBar as RNSearchBar } from 'react-native-elements'
+import { Platform } from 'react-native'
 // eslint-disable-next-line
-import SearchBar from './SearchBar'
 import { getImages, setSearchQuery, clearQuery } from './actions'
 
-// eslint-disable-next-line no-shadow
-const SearchBarHeader = ({ sendQuery, clearQuery, query }) => (
-  <SearchBar
-    value={query}
-    onChangeText={sendQuery}
-    onClearText={clearQuery}
-  />
+const SearchBarHeader = ({
+  // eslint-disable-next-line no-shadow
+  sendQuery, clearQuery, query, isPortrait
+}) => (
+  isPortrait ? (
+    <RNSearchBar
+      platform={Platform.OS === 'ios' ? 'ios' : 'android'}
+      onChangeText={sendQuery}
+      onClearText={clearQuery}
+      value={query}
+      placeholder="Type Here..."
+    />) : null
 )
 
 SearchBarHeader.propTypes = {
   sendQuery: PropTypes.func.isRequired,
   clearQuery: PropTypes.func.isRequired,
+  isPortrait: PropTypes.bool.isRequired,
   query: PropTypes.string
 }
 
@@ -38,8 +45,9 @@ const mapDispatch = (dispatch => ({
   }
 }))
 
-const mapState = (({ images }) => ({
-  query: images.query
+const mapState = (({ images, orientation }) => ({
+  query: images.query,
+  isPortrait: orientation.isPortrait
 }))
 
 export default connect(mapState, mapDispatch)(SearchBarHeader)
