@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import SearchBar from './SearchBar'
 import { getImages, setSearchQuery, clearQuery } from './actions'
 
+// eslint-disable-next-line no-shadow
 const SearchBarHeader = ({ sendQuery, clearQuery, query }) => (
   <SearchBar
     value={query}

@@ -16,3 +16,6 @@ export const CLEAR_SEARCH_QUERY = 'CLEAR_SEARCH_QUERY'
 // Seting a image to see details
 export const SET_IMAGE = 'SET_IMAGE'
 export const UNSET_IMAGE = 'UNSET_IMAGE'
+
+// Change Orientation
+export const CHANGE_ORIENTATION = 'CHANGE_ORIENTATION'

@@ -6,7 +6,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
-  Dimensions,
   ListView,
   StyleSheet,
   View,
@@ -47,8 +46,7 @@ class ImageGrid extends Component {
   renderRow(items) {
     // Calculate the width of a single item based on the device width
     // and the desired margins between individual items
-    const deviceWidth = Dimensions.get('window').width
-    const { itemsPerRow, itemMargin } = this.props
+    const { itemsPerRow, itemMargin, deviceWidth } = this.props
     const totalMargin = itemMargin * (itemsPerRow - 1)
     const itemWidth = Math.floor((deviceWidth - totalMargin) / itemsPerRow)
     const adjustedMargin = (deviceWidth - (itemsPerRow * itemWidth)) / (itemsPerRow - 1)
@@ -87,7 +85,8 @@ ImageGrid.propTypes = {
   onItemTouch: PropTypes.func.isRequired,
   loadMoreContentAsync: PropTypes.func.isRequired,
   itemsPerRow: PropTypes.number.isRequired,
-  itemMargin: PropTypes.number
+  itemMargin: PropTypes.number,
+  deviceWidth: PropTypes.number.isRequired
 }
 
 ImageGrid.defaultProps = {
