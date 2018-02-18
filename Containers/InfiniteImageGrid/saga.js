@@ -31,6 +31,6 @@ export default function* getMoreImagesSaga() {
     // Gives a smooth infinite scroll effect where requests are handled
     // and not lost, at a rate that is reduced from if it was just
     // called normally.
-    throttle(300, GET_MORE_IMAGES, getMoreImages),
+    throttle(500, GET_MORE_IMAGES, getMoreImages),
   ])
 }
