@@ -1,4 +1,5 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
 import {
   GET_IMAGES,
   RECEIEVE_IMAGES,
@@ -9,6 +10,8 @@ import { imagesAPI } from '../../api'
 
 function* getImages({ query }) {
   try {
+    // Debounce to avoid spamming API endpoint
+    yield call(delay, 500)
     const images = yield call(imagesAPI.getImages, query)
     yield put({ type: RECEIEVE_IMAGES, items: images })
   } catch (error) {

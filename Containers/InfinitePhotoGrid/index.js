@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import PhotoGrid from './PhotoGrid'
 import { selectImageData } from './selectors'
+import { getMoreImages, incrementPage } from './actions'
 
 const styles = StyleSheet.create({
   container: {
@@ -15,14 +16,6 @@ const styles = StyleSheet.create({
 })
 
 class InfinitePhotoGrid extends Component {
-  constructor() {
-    super()
-    this.loadMoreContent = this.loadMoreContent.bind(this)
-  }
-
-  loadMoreContent() {
-  }
-
   renderItem(item, itemSize) {
     return (
       <TouchableOpacity
@@ -49,7 +42,7 @@ class InfinitePhotoGrid extends Component {
               itemsPerRow={3}
               itemMargin={1}
               renderItem={this.renderItem}
-              loadMoreContentAsync={this.loadMoreContent}
+              loadMoreContentAsync={this.props.loadMoreImages}
             /> : <Text>Please enter a search query</Text>
         }
       </View>
@@ -69,4 +62,10 @@ const mapState = (({ images }) => ({
   images: selectImageData(images.items)
 }))
 
-export default connect(mapState)(InfinitePhotoGrid)
+const mapDispatch = (dispatch => ({
+  loadMoreImages() {
+    dispatch(getMoreImages())
+  }
+}))
+
+export default connect(mapState, mapDispatch)(InfinitePhotoGrid)
