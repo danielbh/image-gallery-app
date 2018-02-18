@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { InfinitePhotoGrid } from '../../Containers'
+import { InfiniteImageGrid } from '../../Containers'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ export default class ImageList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <InfinitePhotoGrid />
+        <InfiniteImageGrid />
       </View>
     )
   }

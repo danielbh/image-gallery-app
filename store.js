@@ -3,7 +3,7 @@ import { all, call } from 'redux-saga/effects'
 import createSagaMiddleware from 'redux-saga'
 import freeze from 'redux-freeze'
 import getImagesSaga from './Containers/SearchBarHeader/saga'
-import getMoreImagesSaga from './Containers/InfinitePhotoGrid/saga'
+import getMoreImagesSaga from './Containers/InfiniteImageGrid/saga'
 import reducers from './Reducers'
 
 const sagaMiddleware = createSagaMiddleware()

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   }
 })
 
-class PhotoGrid extends Component {
+class ImageGrid extends Component {
   constructor() {
     super()
 
@@ -55,7 +55,8 @@ class PhotoGrid extends Component {
 
     return (
       <View style={[styles.row, { marginBottom: adjustedMargin }]}>
-        {items.map(item => this.props.renderItem(item, itemWidth))}
+        {items.map(item =>
+          this.props.renderItem(item, itemWidth, this.props.onItemTouch))}
         {itemsPerRow - items.length > 0 &&
           <View style={{ width: itemWidth * (itemsPerRow - items.length) }} />
         }
@@ -80,16 +81,17 @@ class PhotoGrid extends Component {
   }
 }
 
-PhotoGrid.propTypes = {
+ImageGrid.propTypes = {
   data: PropTypes.array.isRequired,
   renderItem: PropTypes.func.isRequired,
+  onItemTouch: PropTypes.func.isRequired,
   loadMoreContentAsync: PropTypes.func.isRequired,
   itemsPerRow: PropTypes.number.isRequired,
   itemMargin: PropTypes.number
 }
 
-PhotoGrid.defaultProps = {
+ImageGrid.defaultProps = {
   itemMargin: 1
 }
 
-export default PhotoGrid
+export default ImageGrid

@@ -1,2 +1,2 @@
-export { default as InfinitePhotoGrid } from './InfinitePhotoGrid'
+export { default as InfiniteImageGrid } from './InfiniteImageGrid'
 export { default as SearchBarHeader } from './SearchBarHeader'

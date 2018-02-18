@@ -13,6 +13,6 @@ export const INCREMENT_PAGE = 'INCREMENT_PAGE'
 export const SET_SEARCH_QUERY = 'UPDATE_SEARCH_QUERY'
 export const CLEAR_SEARCH_QUERY = 'CLEAR_SEARCH_QUERY'
 
-// Selecting a photo to see details
-export const SELECT_PHOTO = 'SELECT_PHOTO'
-export const DESELECT_PHOTO = 'DESELECT_PHOTO'
+// Seting a image to see details
+export const SET_IMAGE = 'SET_IMAGE'
+export const UNSET_IMAGE = 'UNSET_IMAGE'

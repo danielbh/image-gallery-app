@@ -1,6 +1,7 @@
 import {
   GET_MORE_IMAGES,
-  INCREMENT_PAGE
+  INCREMENT_PAGE,
+  SET_IMAGE
 } from '../../constants'
 
 export function getMoreImages() {
@@ -9,4 +10,8 @@ export function getMoreImages() {
 
 export function incrementPage() {
   return { type: INCREMENT_PAGE }
+}
+
+export function setImage(payload) {
+  return { type: SET_IMAGE, payload }
 }
