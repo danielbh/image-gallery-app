@@ -19,7 +19,7 @@ class InfinitePhotoGrid extends Component {
     ))
   }
 
-  async loadMoreContent() {
+  loadMoreContent() {
     this.setState({ items: this.state.items.concat(this.generateImages(40)) })
   }
 

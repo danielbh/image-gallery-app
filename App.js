@@ -1,22 +1,13 @@
 import React from 'react'
-import { StackNavigator } from 'react-navigation'
-import { ImageDetails, ImageList } from './Scenes'
-import { Header, SearchBarHeader } from './Components'
+import { Provider } from 'react-redux'
+import Navigation from './Navigation'
+import configureStore from './store'
 
-const RootNavigator = StackNavigator({
-  ImageList: {
-    screen: ImageList,
-    navigationOptions: {
-      headerTitle: <SearchBarHeader />
-    }
-  },
-  ImageDetails: {
-    screen: ImageDetails,
-    navigationOptions: {
-      headerTitle: <Header title="Image Details" />
-    }
-  }
-})
+const App = () => (
+  <Provider store={configureStore()}>
+    <Navigation />
+  </Provider>
+)
 
-export default RootNavigator
+export default App
 

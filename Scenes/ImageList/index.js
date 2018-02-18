@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { InfinitePhotoGrid } from '../../Components'
+import { InfinitePhotoGrid } from '../../Containers'
 
 const styles = StyleSheet.create({
   container: {
