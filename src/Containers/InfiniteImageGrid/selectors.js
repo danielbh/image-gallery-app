@@ -5,10 +5,12 @@ export function selectImageData(items) {
     user,
     tags,
     imageHeight,
-    imageWidth
+    imageWidth,
+    webformatURL
   }) => ({
     id,
     src: previewURL,
+    fullSizeImage: webformatURL,
     user,
     tags,
     imageHeight,

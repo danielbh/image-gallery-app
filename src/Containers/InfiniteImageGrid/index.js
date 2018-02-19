@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
-import ImageGrid from './ImageGrid'
+import ImageGrid from 'react-native-image-grid'
 import { selectImageData } from './selectors'
 import { getMoreImages, setImage } from './actions'
 
@@ -38,14 +38,16 @@ class InfiniteImageGrid extends Component {
     tags,
     imageHeight,
     imageWidth,
-    src
+    src,
+    fullSizeImage
   }) {
     this.props.setImage({
       user,
       tags,
       imageHeight,
       imageWidth,
-      src
+      src,
+      fullSizeImage
     })
 
     this.props.navigation.navigate('ImageDetails')
