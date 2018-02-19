@@ -37,7 +37,7 @@ const ImageDetails = ({
     <ParallaxView
       width={deviceWidth}
       windowHeight={500}
-      style={[styles.container, { width: deviceWidth }]}
+      style={styles.container}
       backgroundSource={{ uri: src }}
     >
       <View style={styles.description}>
@@ -64,6 +64,7 @@ ImageDetails.propTypes = {
   imageHeight: PropTypes.number.isRequired,
   imageWidth: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
+  deviceWidth: PropTypes.number.isRequired
 }
 
 const mapState = ({ currentImage, orientation }) => {

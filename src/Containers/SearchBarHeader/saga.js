@@ -8,6 +8,9 @@ import {
 
 import { imagesAPI } from '../../api'
 
+/**
+ * @param {*} query search query string sent to API endpoint
+ */
 function* getImages({ query }) {
   try {
     // Debounce to avoid spamming API endpoint

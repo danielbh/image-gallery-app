@@ -7,6 +7,7 @@ import configureStore from './store'
 
 const store = configureStore()
 
+// This manages orientation changes and changes state depending on orientation.
 function createOrientationManager() {
   Dimensions.addEventListener('change', () => {
     const dim = Dimensions.get('screen')

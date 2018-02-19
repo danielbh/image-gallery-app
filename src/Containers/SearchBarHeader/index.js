@@ -10,24 +10,26 @@ const SearchBarHeader = ({
   // eslint-disable-next-line no-shadow
   sendQuery, clearQuery, query, isPortrait, deviceWidth
 }) => (
-    isPortrait ? (
-      <View style={{ width: deviceWidth }} >
-        <RNSearchBar
-          width={deviceWidth}
-          platform={Platform.OS === 'ios' ? 'ios' : 'android'}
-          onChangeText={sendQuery}
-          onClearText={clearQuery}
-          value={query}
-          placeholder="Search for images"
-        />
-      </View>
-    ) : null
-  )
+  isPortrait ? (
+    <View style={{ width: deviceWidth }} >
+      <RNSearchBar
+        width={deviceWidth}
+        // Different `platform` props will display platform specific components
+        platform={Platform.OS === 'ios' ? 'ios' : 'android'}
+        onChangeText={sendQuery}
+        onClearText={clearQuery}
+        value={query}
+        placeholder="Search for images"
+      />
+    </View>
+  ) : null
+)
 
 SearchBarHeader.propTypes = {
   sendQuery: PropTypes.func.isRequired,
   clearQuery: PropTypes.func.isRequired,
   isPortrait: PropTypes.bool.isRequired,
+  deviceWidth: PropTypes.number.isRequired,
   query: PropTypes.string
 }
 

@@ -1,3 +1,8 @@
+
+/**
+ * @param {Array} items raw image data objects obtained from API. Here we re-shape
+ *            them to be used later.
+ */
 export function selectImageData(items) {
   return items.map(({
     id,

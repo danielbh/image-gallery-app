@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { connect } from 'react-redux'
 import { InfiniteImageGrid } from '../../Containers'
 
 const styles = StyleSheet.create({
@@ -24,8 +23,4 @@ class ImageList extends Component {
   }
 }
 
-const mapState = ({ orientation }) => ({
-  isPortrait: orientation.isPortrait
-})
-
-export default connect(mapState)(ImageList)
+export default ImageList
