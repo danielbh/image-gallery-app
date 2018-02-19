@@ -1,4 +1,4 @@
-## Image Gallery App.
+## Image Gallery App
 
 This is a react native image gallery demo app. To get started please add a `config.js` file to the root directory and add the following configuration object to it
 
