@@ -4,7 +4,7 @@ import {
   CLEAR_SEARCH_QUERY,
   RECEIEVE_MORE_IMAGES,
   INCREMENT_PAGE
-} from '../constants'
+} from '../../constants'
 
 const imagesReducer = (
   state = { items: [], query: '', page: 1 },

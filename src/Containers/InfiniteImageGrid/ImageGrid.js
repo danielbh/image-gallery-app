@@ -1,6 +1,6 @@
 /**
  * Fork of an OSS MIT licensed npm module.
- * Infinite scroll was added and code was cleaned up.
+ * Infinite scroll was added, code was cleaned up, and onTouch callback added.
  * LICENSE and COPYRIGHT: http://bit.ly/2Hp0Lxn
  */
 import React, { Component } from 'react'
@@ -90,7 +90,7 @@ ImageGrid.propTypes = {
 }
 
 ImageGrid.defaultProps = {
-  itemMargin: 1
+  itemMargin: 0
 }
 
 export default ImageGrid

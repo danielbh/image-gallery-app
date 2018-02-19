@@ -4,7 +4,7 @@ import {
   GET_IMAGES,
   RECEIEVE_IMAGES,
   ERROR_RECEIVING_IMAGES
-} from '../../constants'
+} from '../../../constants'
 
 import { imagesAPI } from '../../api'
 

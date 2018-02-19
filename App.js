@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { Dimensions } from 'react-native'
-import Navigation from './Navigation'
+import Navigation from './src/Navigation'
 import { CHANGE_ORIENTATION } from './constants'
 import configureStore from './store'
 

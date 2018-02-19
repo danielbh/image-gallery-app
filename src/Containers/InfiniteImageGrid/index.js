@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  well: {
+    fontSize: 23,
+    marginTop: 100,
+    fontStyle: 'italic',
+    color: 'darkgray'
+  }
 })
 
 class InfiniteImageGrid extends Component {
@@ -71,12 +75,12 @@ class InfiniteImageGrid extends Component {
             <ImageGrid
               data={this.props.images}
               itemsPerRow={this.props.isPortrait ? 3 : 6}
-              itemMargin={1}
               onItemTouch={this.goToImageDetails}
               renderItem={this.renderItem}
               loadMoreContentAsync={this.props.loadMoreImages}
               deviceWidth={this.props.deviceWidth}
-            /> : <Text>Please enter a search query</Text>
+            /> :
+            <Text style={styles.well}>Search for beautiful images...</Text>
         }
       </View>
     )

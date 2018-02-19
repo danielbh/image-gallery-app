@@ -2,7 +2,7 @@ import {
   GET_IMAGES,
   SET_SEARCH_QUERY,
   CLEAR_SEARCH_QUERY
-} from '../../constants'
+} from '../../../constants'
 
 export function getImages(query) {
   return { type: GET_IMAGES, query }

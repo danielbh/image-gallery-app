@@ -13,7 +13,7 @@ const RootNavigator = StackNavigator({
   ImageDetails: {
     screen: ImageDetails,
     navigationOptions: {
-      headerTitle: 'Image Details'
+      title: 'Image Details'
     }
   }
 })

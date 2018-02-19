@@ -11,7 +11,7 @@ import {
   RECEIEVE_MORE_IMAGES,
   ERROR_RECEIVING_MORE_IMAGES,
   INCREMENT_PAGE
-} from '../../constants'
+} from '../../../constants'
 
 import { imagesAPI } from '../../api'
 

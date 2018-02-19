@@ -16,7 +16,7 @@ const SearchBarHeader = ({
       onChangeText={sendQuery}
       onClearText={clearQuery}
       value={query}
-      placeholder="Type Here..."
+      placeholder="Search for images"
     />) : null
 )
 
@@ -36,6 +36,7 @@ const mapDispatch = (dispatch => ({
     if (query.length) {
       dispatch(setSearchQuery(query))
       dispatch(getImages(query))
+    // Clear images if no query
     } else {
       dispatch(clearQuery())
     }

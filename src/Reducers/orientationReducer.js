@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native'
-import { CHANGE_ORIENTATION } from '../constants'
+import { CHANGE_ORIENTATION } from '../../constants'
 
 const dim = Dimensions.get('screen')
 

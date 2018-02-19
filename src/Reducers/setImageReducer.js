@@ -1,7 +1,7 @@
 import {
   UNSET_IMAGE,
   SET_IMAGE
-} from '../constants'
+} from '../../constants'
 
 const setImageReducer = (state = {}, action) => {
   switch (action.type) {
