@@ -8,4 +8,4 @@ This is a react native image gallery demo app. To get started please add a `conf
   }
 ```
 
-After that just type `npm start` and you will be able to run it like any other react native app.
+After that just type `npm start` into your terminal and you will be able to run it like any other react native app.
