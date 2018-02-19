@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ParallaxView from 'react-native-parallax-view'
@@ -31,9 +31,15 @@ const ImageDetails = ({
   imageHeight,
   imageWidth,
   src,
+  deviceWidth
 }) => {
   return (
-    <ParallaxView style={styles.container} backgroundSource={{ uri: src }} >
+    <ParallaxView
+      width={deviceWidth}
+      windowHeight={500}
+      style={[styles.container, { width: deviceWidth }]}
+      backgroundSource={{ uri: src }}
+    >
       <View style={styles.description}>
         <View style={styles.section}>
           <Text style={styles.heading}>User:</Text>
@@ -60,7 +66,7 @@ ImageDetails.propTypes = {
   src: PropTypes.string.isRequired,
 }
 
-const mapState = ({ currentImage }) => {
+const mapState = ({ currentImage, orientation }) => {
   const {
     user, tags, imageHeight, imageWidth, fullSizeImage
   } = currentImage
@@ -71,6 +77,7 @@ const mapState = ({ currentImage }) => {
     imageHeight,
     imageWidth,
     src: fullSizeImage,
+    deviceWidth: orientation.deviceWidth
   }
 }
 

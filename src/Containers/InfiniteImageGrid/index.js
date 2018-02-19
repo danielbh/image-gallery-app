@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     marginTop: 100,
     fontStyle: 'italic',
     color: 'darkgray'
+  },
+  image: {
+    flex: 1
   }
 })
 
@@ -61,9 +64,10 @@ class InfiniteImageGrid extends Component {
         onPress={() => goToImageDetails(item)}
       >
         <Image
-          resizeMode="cover"
-          style={{ flex: 1 }}
-          source={{ uri: item.src }}
+          style={styles.image}
+          source={{
+            uri: item.src,
+          }}
         />
       </TouchableOpacity>
     )
